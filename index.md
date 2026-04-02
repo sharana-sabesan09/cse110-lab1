@@ -22,12 +22,12 @@ Proof of Work Algorithm - The Consensus Algorithm behind Bitcoin
 import json # parsing data
 import time # timestamps
 import names # making transactions
-import random # making transactions
+import random # making transactions'
 
-DIFFICULTY = 4
-BLOCK_LIMIT = 3
+'DIFFICULTY = 4
+BLOCK_LIMIT = 3'
 
-class Chain:
+'class Chain:
     def __init__(self):
         self.blockchain = [] # list of blocks
         self.pending    = [] # list of transactions yet to be added
@@ -55,9 +55,9 @@ class Chain:
         # ^ sha256 creates hash for the block
         # ^ hexdigest() returns encoded data in hexadecimal format
 
-        return curhash
+        return curhash'
 
-    def mine_block(self, block):
+    'def mine_block(self, block):
         zero_list = ""
         for i in range(DIFFICULTY):
             zero_list = zero_list + "0"
@@ -69,10 +69,10 @@ class Chain:
         # ^ guessing game until hash equals target hash
             
         print("Block " + str(block["index"]+ 1) + " MINED: " + self.compute_hash(block) + "\n")
-        return self.compute_hash(block),block["nonce"]
+        return self.compute_hash(block),block["nonce"]'
     
 
-    def add_block(self):
+    'def add_block(self):
         if(len(self.blockchain) == 0):
             prevhash = "Genesis"
         else:
@@ -96,28 +96,25 @@ class Chain:
         # ^ list of transactions is cleared. We don't want old transactions from previous block in new block
     
         block["proof"], block["nonce"] = self.mine_block(block)
-        # ^ calculates proof of work and updates nonce value; both variables are added to block
+        # ^ calculates proof of work and updates nonce value; both variables are added to block'
         
-    def print_blockchain(self):
+    'def print_blockchain(self):
         print('-' * 80)
         print("ENTIRE BLOCKCHAIN LEDGER:\n")
         for block in self.blockchain:
             print("BLOCK " + str(block["index"]+1) + " : " + str(block) + "\n")
-        # ^ prints blockchain in neat format
+        # ^ prints blockchain in neat format'
 
-total_blocks = int(input("How many blocks should be in the blockchain? "))
-# ^ finds how many blocks to create in blockchain based on user
+'total_blocks = int(input("How many blocks should be in the blockchain? "))'
 
-chain = Chain()
-# a chain object is created
+'chain = Chain()'
 
-for block in range(total_blocks):
+'for block in range(total_blocks):
     for transaction in range(BLOCK_LIMIT):
         chain.add_transaction(names.get_first_name(), names.get_first_name(), random.randrange(0, 2**31-1))
         # ^ each transaction has random sender, reciever, and amount
      chain.add_block()
-     # block added to Chain object
-# ^ the total blocks, said by user are created, with BLOCK_LIMIT transactions in each block
+     # block added to Chain object'
 
 
-chain.print_blockchain()'
+'chain.print_blockchain()'
