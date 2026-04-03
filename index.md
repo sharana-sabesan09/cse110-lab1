@@ -89,8 +89,6 @@ class Chain:
         for block in self.blockchain:
             print(f"BLOCK {block['index']+1} : {block}\n")
 
-
-# --- Run the blockchain ---
 total_blocks = int(input("How many blocks should be in the blockchain? "))
 chain = Chain()
 
@@ -103,4 +101,4 @@ for _ in range(total_blocks):
         )
     chain.add_block()
 
-chain.print_blockchain()
+chain.print_blockchain()'''
